@@ -4,6 +4,11 @@
 <p><ins>Insert</ins></p>
 .
 
+.
+++Insert++(WZ)
+.
+<p><ins>Insert</ins><sup>WZ</sup></p>
+.
 
 .
 x ++++foo++ bar++

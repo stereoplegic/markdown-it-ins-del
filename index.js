@@ -71,7 +71,7 @@ function insert(state, silent) {
       start = state.pos,
       marker = state.src.charCodeAt(start);
 
-  if (marker !== 0x2B/* + */) { return false; }
+  if (marker !== 0x2B  /* 0x2B = + */) { return false; }
   if (silent) { return false; } // don't run any pairs in validation mode
 
   res = scanDelims(state, start);
@@ -123,6 +123,7 @@ function insert(state, silent) {
   state.pos = start + 2;
 
   // Earlier we checked !silent, but this implementation does not need it
+  // state.push('ins_open', 'del', 1); change here for html open tag, and close tag down
   token        = state.push('ins_open', 'ins', 1);
   token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
@@ -131,12 +132,23 @@ function insert(state, silent) {
   token        = state.push('ins_close', 'ins', -1);
   token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
+    // brute force add <sup> script, need to check if there is actually attribution!!
+    token        = state.push('ins_open', 'sup', 1);
+    token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
+
+    state.pos = state.posMax + 3;
+    state.posMax = max-1;
+    state.md.inline.tokenize(state);
+
+    token        = state.push('ins_close', 'sup', -1);
+    token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
+
   state.pos = state.posMax + 2;
   state.posMax = max;
   return true;
 }
 
-
 module.exports = function ins_plugin(md) {
-  md.inline.ruler.before('emphasis', 'ins', insert);
+    // new rule will be added before this one, ame of added rule, rule function.
+    md.inline.ruler.before('emphasis', 'ins', insert);
 };
