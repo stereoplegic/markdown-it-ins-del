@@ -1,6 +1,5 @@
 'use strict';
 
-
 // parse sequence of markers,
 // "start" should point at a valid marker
 function scanDelims(state, start) {
@@ -58,8 +57,7 @@ function scanDelims(state, start) {
   };
 }
 
-
-function insert(state, silent) {
+function insertweditor(state, silent) {
   var startCount,
       count,
       tagCount,
@@ -67,6 +65,7 @@ function insert(state, silent) {
       stack,
       res,
       token,
+      insertSuccess,
       max = state.posMax,
       start = state.pos,
       marker = state.src.charCodeAt(start);
@@ -115,6 +114,7 @@ function insert(state, silent) {
   if (!found) {
     // parser failed to find ending tag, so it's not valid emphasis
     state.pos = start;
+      insertSuccess = false;
     return false;
   }
 
@@ -132,23 +132,74 @@ function insert(state, silent) {
   token        = state.push('ins_close', 'ins', -1);
   token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
-    // brute force add <sup> script, need to check if there is actually attribution!!
-    token        = state.push('ins_open', 'sup', 1);
-    token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
-
-    state.pos = state.posMax + 3;
-    state.posMax = max-1;
-    state.md.inline.tokenize(state);
-
-    token        = state.push('ins_close', 'sup', -1);
-    token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
-
   state.pos = state.posMax + 2;
   state.posMax = max;
-  return true;
+
+    insertSuccess = true;
+
+    // Adding editor as superscript after insert tag
+    if (!insertSuccess) return true;
+    var UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
+
+    var foundStart,
+        labelStart,
+        content,
+        token2,
+        max2 = state.posMax,
+        start2 = state.pos;
+
+    if (state.src.charCodeAt(start2) !== 0x5B /* [ */) { return true; } // don't need to addeditor at all
+    if (silent) { return false; } // don't run any pairs in validation mode
+    if (start2 >= max2 || start2 + 2 >= max2) { return false; }
+
+    state.pos = start2 + 1;
+
+    while (state.pos < max2) {
+        if (state.src.charCodeAt(state.pos) === 0x5D /* [ */) {
+            foundStart = true;
+            break;
+        }
+        state.md.inline.skipToken(state);
+    }
+
+    if (!foundStart || start2 + 1 === state.pos) {
+        state.pos = start2;
+        return false;
+    }
+
+    content = state.src.slice(start2 + 1, state.pos);
+
+    // don't allow unescaped spaces/newlines inside
+    if (content.match(/(^|[^\\])(\\\\)*\s/)) {
+        state.pos = start2;
+        return false;
+    }
+
+    // found!
+    state.posMax = state.pos;
+    labelStart = start2 + 1;
+    state.pos = labelStart;
+
+    // Earlier we checked !silent, but this implementation does not need it
+    token2         = state.push('sup_open', 'sup', 1);
+    token2.markup  = '[';
+
+    //token2         = state.push('text', '', 0);
+    //token2.content = content.replace(UNESCAPE_RE, '$1');
+    //token2.markup = String.fromCharCode(marker);
+
+    state.md.inline.tokenize(state);
+
+    token2         = state.push('sup_close', 'sup', -1);
+    token2.markup  = ']';
+
+    state.pos = state.posMax+ 1;
+    state.posMax = max2;
+
+    return true;
 }
 
 module.exports = function ins_plugin(md) {
     // new rule will be added before this one, ame of added rule, rule function.
-    md.inline.ruler.before('emphasis', 'ins', insert);
+    md.inline.ruler.before('emphasis', 'ins', insertweditor);
 };

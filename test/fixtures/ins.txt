@@ -5,7 +5,7 @@
 .
 
 .
-++Insert++(WZ)
+++Insert++[WZ]
 .
 <p><ins>Insert</ins><sup>WZ</sup></p>
 .
@@ -17,9 +17,21 @@ x ++++foo++ bar++
 .
 
 .
+x ++++foo++[WZ] bar++[WZ]
+.
+<p>x <ins><ins>foo</ins><sup>WZ</sup> bar</ins><sup>WZ</sup></p>
+.
+
+.
 x ++foo ++bar++++
 .
 <p>x <ins>foo <ins>bar</ins></ins></p>
+.
+
+.
+x ++foo ++bar++[WZ]++[WZ]
+.
+<p>x <ins>foo <ins>bar</ins><sup>WZ</sup></ins><sup>WZ</sup></p>
 .
 
 .
@@ -46,13 +58,21 @@ Inserts have the same priority as emphases:
 .
 
 
+Works with links
+.
+++[my link](http://link.com)++[jrs]
+.
+<p><ins><a href="http://link.com">my link</a></ins><sup>jrs</sup></p>
+.
+
+
 Inserts have the same priority as emphases with respect to links:
 .
-[++link]()++
+[++link](123)++
 
 ++[link++]()
 .
-<p><a href="">++link</a>++</p>
+<p><a href="123">++link</a>++</p>
 <p>++<a href="">link++</a></p>
 .
 
