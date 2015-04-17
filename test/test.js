@@ -8,7 +8,8 @@ var generate = require('markdown-it-testgen');
 
 describe('markdown-it-ins', function () {
   var md = require('markdown-it')()
-              .use(require('../'));
+            .use(require('../'))
+            .disable('strikethrough');
 
   generate(path.join(__dirname, 'fixtures/ins.txt'), md);
 });
