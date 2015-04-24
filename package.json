@@ -1,7 +1,7 @@
 {
   "name": "markdown-it-ins-del",
-  "version": "1.0.0",
-  "description": "<ins> and <del> tag for markdown-it markdown parser with editor attributions.",
+  "version": "0.1.0",
+  "description": "<ins> and <del> tags, with attribution, for markdown-it markdown parser.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
@@ -12,13 +12,13 @@
     "del",
     "sup"
   ],
-  "homepage": "https://github.com/markdown-it/markdown-it-ins-del",
+  "homepage": "https://github.com/WenTingZhu/markdown-it-ins-del",
   "repository": {
     "type": "git",
-    "url": "git://github.com/markdown-it/markdown-it-ins-del.git"
+    "url": "https://github.com/WenTingZhu/markdown-it-ins-del.git"
   },
   "bugs": {
-    "url": "https://github.com/markdown-it/markdown-it-ins-del/issues"
+    "url": "https://github.com/WenTingZhu/markdown-it-ins-del/issues"
   },
   "license": "MIT",
   "main": "index.js",
