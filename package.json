@@ -1,21 +1,24 @@
 {
-  "name": "markdown-it-ins",
+  "name": "markdown-it-ins-del",
   "version": "1.0.0",
-  "description": "<ins> tag for markdown-it markdown parser.",
+  "description": "<ins> and <del> tag for markdown-it markdown parser with editor attributions.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
     "markdown",
     "insert",
-    "ins"
+    "ins",
+    "delete",
+    "del",
+    "sup"
   ],
-  "homepage": "https://github.com/markdown-it/markdown-it-ins",
+  "homepage": "https://github.com/markdown-it/markdown-it-ins-del",
   "repository": {
     "type": "git",
-    "url": "git://github.com/markdown-it/markdown-it-ins.git"
+    "url": "git://github.com/markdown-it/markdown-it-ins-del.git"
   },
   "bugs": {
-    "url": "https://github.com/markdown-it/markdown-it-ins/issues"
+    "url": "https://github.com/markdown-it/markdown-it-ins-del/issues"
   },
   "license": "MIT",
   "main": "index.js",
