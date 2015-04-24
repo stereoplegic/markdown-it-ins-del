@@ -265,13 +265,13 @@ function deleteweditor(state, silent) {
     state.pos = start + 2;
 
     // Earlier we checked !silent, but this implementation does not need it
-    // state.push('ins_open', 'del', 1); change here for html open tag, and close tag down
-    token        = state.push('ins_open', 'del', 1);
+    // state.push('ins_open', 's', 1); change here for html open tag, and close tag down
+    token        = state.push('ins_open', 's', 1);
     token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
     state.md.inline.tokenize(state);
 
-    token        = state.push('ins_close', 'del', -1);
+    token        = state.push('ins_close', 's', -1);
     token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
     state.pos = state.posMax + 2;
@@ -344,5 +344,5 @@ function deleteweditor(state, silent) {
 module.exports = function ins_plugin(md) {
     // new rule will be added before this one, name of added rule, rule function.
     md.inline.ruler.before('emphasis', 'ins', insertweditor);
-    md.inline.ruler.before('emphasis', 'del', deleteweditor);
+    md.inline.ruler.before('emphasis', 's', deleteweditor);
 };

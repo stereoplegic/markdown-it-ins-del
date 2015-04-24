@@ -11,5 +11,5 @@ describe('markdown-it-ins', function () {
             .use(require('../'))
             .disable('strikethrough');
 
-  generate(path.join(__dirname, 'fixtures/ins.txt'), md);
+  generate(path.join(__dirname, 'fixtures/ins-del.txt'), md);
 });
