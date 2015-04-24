@@ -138,7 +138,9 @@ function insertweditor(state, silent) {
     insertSuccess = true;
 
     // Adding editor as superscript after insert tag
-    if (!insertSuccess) return true;
+    if (!insertSuccess) {
+        return true;
+    }
     var UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 
     var foundStart,
@@ -280,7 +282,9 @@ function deleteweditor(state, silent) {
     deleteSuccess = true;
 
     // Adding editor as superscript after delete tag
-    if (!deleteSuccess) return true;
+    if (!deleteSuccess) {
+        return true;
+    }
     var UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 
     var foundStart,
