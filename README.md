@@ -3,7 +3,7 @@
 > `<ins>` and `<del>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
 Also enables attribution of editor
 
-__v1.+ requires `markdown-it` v4.+, see changelog.__
+__v0.1.+ requires `markdown-it` v4.+, see changelog.__
 
 `++insert++[WZ]` => `<ins>insert</ins><sup>WZ</sup>`
 `~~delete~~[WZ]` => `<del>delete</del><sup>WZ</sup>`
