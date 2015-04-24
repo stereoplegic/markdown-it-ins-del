@@ -11,7 +11,7 @@
     "ins",
     "delete",
     "del",
-    "sup"
+    "sup",
     "strikethrough"
   ],
   "license": "MIT",
