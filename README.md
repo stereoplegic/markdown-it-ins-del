@@ -5,6 +5,7 @@
 __v0.1.+ requires `markdown-it` v4.+, see changelog.__
 
 `++insert++[WZ]` => `<ins>insert</ins><sup>WZ</sup>`
+
 `~~delete~~[WZ]` => `<del>delete</del><sup>WZ</sup>`
 
 Markup uses the same conditions as CommonMark [emphasis](http://spec.commonmark.org/0.15/#emphasis-and-strong-emphasis).
