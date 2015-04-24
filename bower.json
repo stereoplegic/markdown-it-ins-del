@@ -1,16 +1,17 @@
 {
   "name": "markdown-it-ins-del",
   "main": "index.js",
-  "homepage": "https://github.com/markdown-it/markdown-it-ins",
-  "description": "<ins> and <del> tags, with attribution for markdown-it markdown parser.",
+  "homepage": "https://github.com/markdown-it/markdown-it-ins-del",
+  "description": "<ins> and <del> tags, with attribution, for markdown-it markdown parser with editor attributions.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
     "markdown",
     "insert",
     "ins",
-    "del",
     "delete",
+    "del",
+    "sup"
     "strikethrough"
   ],
   "license": "MIT",

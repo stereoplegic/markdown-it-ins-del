@@ -1,13 +1,16 @@
 {
   "name": "markdown-it-ins-del",
   "version": "0.1.0",
-  "description": "<ins> and <del> tags, with attribution for markdown-it markdown parser.",
+  "description": "<ins> and <del> tags, with attribution, for markdown-it markdown parser.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
     "markdown",
     "insert",
-    "ins"
+    "ins",
+    "delete",
+    "del",
+    "sup"
   ],
   "homepage": "https://github.com/WenTingZhu/markdown-it-ins-del",
   "repository": {

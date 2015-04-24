@@ -1,7 +1,6 @@
 # markdown-it-ins-del
 
-> `<ins>` and `<del>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
-Also enables attribution of editor
+> `<ins>` and `<del>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser with editor attributions.
 
 __v0.1.+ requires `markdown-it` v4.+, see changelog.__
 
@@ -28,7 +27,7 @@ var md = require('markdown-it')()
             .disable('strikethrough');
 
 md.render('++insert++[WZ]') // => '<p><ins>inserted</ins><sup>WZ</sup></p>'
-md.render('++insert++[WZ]') // => '<p><del>delete</del><sup>WZ</sup></p>'
+md.render('~~delete~~[WZ]') // => '<p><del>delete</del><sup>WZ</sup></p>'
 ```
 
 Disable the 'strikethrough' module in Markdown-it.
@@ -39,4 +38,4 @@ package system, module will add itself globally as `window.markdownitIns`.
 
 ## License
 
-[MIT](https://github.com/markdown-it/markdown-it-ins-del-attributable/blob/master/LICENSE)
+[MIT](https://github.com/markdown-it/markdown-it-ins-del/blob/master/LICENSE)
