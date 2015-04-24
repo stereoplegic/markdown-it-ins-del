@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-ins-del",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "<ins> and <del> tags, with attribution, for markdown-it markdown parser.",
   "keywords": [
     "markdown-it-plugin",
