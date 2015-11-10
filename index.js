@@ -214,7 +214,7 @@ function deleteweditor(state, silent) {
         start = state.pos,
         marker = state.src.charCodeAt(start);
 
-    if (marker !== 0x7E  /* 0x7E = ~ */) { return false; }
+    if (marker !== 0x2D  /* 0x2D = - */) { return false; }
     if (silent) { return false; } // don't run any pairs in validation mode
 
     res = scanDelims(state, start);
@@ -268,12 +268,12 @@ function deleteweditor(state, silent) {
 
     // Earlier we checked !silent, but this implementation does not need it
     // state.push('ins_open', 's', 1); change here for html open tag, and close tag down
-    token        = state.push('ins_open', 's', 1);
+    token        = state.push('ins_open', 'del', 1);
     token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
     state.md.inline.tokenize(state);
 
-    token        = state.push('ins_close', 's', -1);
+    token        = state.push('ins_close', 'del', -1);
     token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
     state.pos = state.posMax + 2;
@@ -348,5 +348,5 @@ function deleteweditor(state, silent) {
 module.exports = function ins_plugin(md) {
     // new rule will be added before this one, name of added rule, rule function.
     md.inline.ruler.before('emphasis', 'ins', insertweditor);
-    md.inline.ruler.before('emphasis', 's', deleteweditor);
+    md.inline.ruler.before('emphasis', 'del', deleteweditor);
 };
