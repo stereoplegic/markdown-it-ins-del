@@ -1,7 +1,7 @@
 {
   "name": "markdown-it-ins-del",
   "version": "0.1.1",
-  "description": "<ins> and <s> tags, with attribution, for markdown-it markdown parser.",
+  "description": "<ins> and <del> tags, with attribution, for markdown-it markdown parser. Forked from https://github.com/WenTingZhu/markdown-it-ins-del, but allows use of markdown-it's native strikethrough (<s> tag) via '~~', instead using '--' for <del> tags.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
@@ -13,13 +13,13 @@
     "sup",
     "strikethrough"
   ],
-  "homepage": "https://github.com/WenTingZhu/markdown-it-ins-del",
+  "homepage": "https://github.com/stereoplegic/markdown-it-ins-del",
   "repository": {
     "type": "git",
-    "url": "https://github.com/WenTingZhu/markdown-it-ins-del.git"
+    "url": "https://github.com/stereoplegic/markdown-it-ins-del.git"
   },
   "bugs": {
-    "url": "https://github.com/WenTingZhu/markdown-it-ins-del/issues"
+    "url": "https://github.com/stereoplegic/markdown-it-ins-del/issues"
   },
   "license": "MIT",
   "main": "index.js",

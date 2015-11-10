@@ -1,8 +1,8 @@
 {
   "name": "markdown-it-ins-del",
   "main": "index.js",
-  "homepage": "https://github.com/markdown-it/markdown-it-ins-del",
-  "description": "<ins> and <s> tags, with attribution, for markdown-it markdown parser.",
+  "homepage": "https://github.com/stereoplegic/markdown-it-ins-del",
+  "description": "<ins> and <del> tags, with attribution, for markdown-it markdown parser. Forked from https://github.com/WenTingZhu/markdown-it-ins-del, but allows native markdown-it strikethrough (<s> tags) via '~~' and <del> tags via '--'",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
