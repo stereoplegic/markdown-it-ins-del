@@ -1,7 +1,7 @@
 # markdown-it-ins-del
 
 > `<ins>` and `<del>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser with
-editor attributions. Forked from https://github.com/WenTingZhu/markdown-it-ins-del, but allows use of markdown-it's native strikethrough (<s> tag) via '~~', instead using '--' for <del> tags.
+editor attributions. Forked from https://github.com/WenTingZhu/markdown-it-ins-del, but allows use of markdown-it's native strikethrough (`<s>` tag) via `~~`, instead using `--` for `<del>` tags.
 
 __v0.1.+ requires `markdown-it` v4.+, see changelog.__
 
@@ -32,7 +32,7 @@ md.render('--delete--[WZ]') // => '<p><s>delete</s><sup>WZ</sup></p>'
 ```
 
 <del>Disable the 'strikethrough' module in Markdown-it.</del>
-<ins></ins>
+<ins>This fork allows markdown-it's strikethrough module to use `~~` for `<s>` tags, instead using `--` and producing `<del>` tags.</ins>
 
 _Differences in browser._ If you load script directly into the page, without
 package system, module will add itself globally as `window.markdownitIns`.
