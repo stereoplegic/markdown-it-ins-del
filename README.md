@@ -32,7 +32,7 @@ md.render('--delete--[WZ]') // => '<p><s>delete</s><sup>WZ</sup></p>'
 ```
 
 <del>Disable the 'strikethrough' module in Markdown-it.</del>
-<ins>This fork allows markdown-it's strikethrough module to use `~~` for `<s>` tags, instead using `--` and producing `<del>` tags.</ins>
+<ins>This fork allows markdown-it's strikethrough module to use ~~ for &lt;s&gt; tags, instead using -- and producing &lt;del&gt; tags.</ins>
 
 _Differences in browser._ If you load script directly into the page, without
 package system, module will add itself globally as `window.markdownitIns`.
