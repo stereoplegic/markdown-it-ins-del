@@ -28,7 +28,7 @@ var md = require('markdown-it')()
             .use(require('markdown-it-ins-del'));
 
 md.render('++insert++[WZ]') // => '<p><ins>insert</ins><sup>WZ</sup></p>'
-md.render('--delete--[WZ]') // => '<p><s>delete</s><sup>WZ</sup></p>'
+md.render('--delete--[WZ]') // => '<p><del>delete</del><sup>WZ</sup></p>'
 ```
 
 <del>Disable the 'strikethrough' module in Markdown-it.</del>
