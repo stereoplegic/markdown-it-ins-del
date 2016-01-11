@@ -123,7 +123,7 @@ function insertweditor(state, silent) {
   state.pos = start + 2;
 
   // Earlier we checked !silent, but this implementation does not need it
-  // state.push('ins_open', 'del', 1); change here for html open tag, and close tag down
+  // state.push('ins_open', 'ins', 1); change here for html open tag, and close tag down
   token        = state.push('ins_open', 'ins', 1);
   token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
@@ -267,13 +267,13 @@ function deleteweditor(state, silent) {
     state.pos = start + 2;
 
     // Earlier we checked !silent, but this implementation does not need it
-    // state.push('ins_open', 's', 1); change here for html open tag, and close tag down
-    token        = state.push('ins_open', 'del', 1);
+    // state.push('del_open', 'del', 1); change here for html open tag, and close tag down
+    token        = state.push('del_open', 'del', 1);
     token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
     state.md.inline.tokenize(state);
 
-    token        = state.push('ins_close', 'del', -1);
+    token        = state.push('del_close', 'del', -1);
     token.markup = String.fromCharCode(marker) + String.fromCharCode(marker);
 
     state.pos = state.posMax + 2;
