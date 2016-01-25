@@ -214,7 +214,7 @@ function deleteweditor(state, silent) {
         start = state.pos,
         marker = state.src.charCodeAt(start);
 
-    if (marker !== 0x2D  /* 0x2D = - */) { return false; }
+    if (marker !== 0x21  /* 0x21 = ! */) { return false; } // -- interfered with em-dash when markdown-it typography enabled
     if (silent) { return false; } // don't run any pairs in validation mode
 
     res = scanDelims(state, start);

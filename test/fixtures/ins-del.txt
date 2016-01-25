@@ -4,9 +4,9 @@ Credit to ideas for test cases: http://spec.commonmark.org/0.18/#example-268
 
 ++Insert++[WZ]
 
---Delete--
+!!Delete!!
 
---Delete--[WZ]
+!!Delete!![WZ]
 .
 <p><ins>Insert</ins></p>
 <p><ins>Insert</ins><sup>WZ</sup></p>
@@ -19,9 +19,9 @@ x ++++foo++ bar++
 
 x ++++foo++[WZ] bar++[HP]
 
-x ----foo-- bar--
+x !!!!foo!! bar!!
 
-x ----foo--[WZ] bar--[HP]
+x !!!!foo!![WZ] bar!![HP]
 .
 <p>x <ins><ins>foo</ins> bar</ins></p>
 <p>x <ins><ins>foo</ins><sup>WZ</sup> bar</ins><sup>HP</sup></p>
@@ -34,9 +34,9 @@ x ++foo ++bar++++
 
 x ++foo ++bar++[WZ]++[HP]
 
-x --foo --bar----
+x !!foo !!bar!!!!
 
-x --foo --bar--[WZ]--[HP]
+x !!foo !!bar!![WZ]!![HP]
 .
 <p>x <ins>foo <ins>bar</ins></ins></p>
 <p>x <ins>foo <ins>bar</ins><sup>WZ</sup></ins><sup>HP</sup></p>
@@ -51,11 +51,11 @@ x ++++foo++[WZ]++[HP]
 
 x ++++foo++++[WZ][HP]
 
-x ----foo----
+x !!!!foo!!!!
 
-x ----foo--[WZ]--[HP]
+x !!!!foo!![WZ]!![HP]
 
-x ----foo----[WZ][HP]
+x !!!!foo!!!![WZ][HP]
 .
 <p>x <ins><ins>foo</ins></ins></p>
 <p>x <ins><ins>foo</ins><sup>WZ</sup></ins><sup>HP</sup></p>
@@ -70,9 +70,9 @@ x +++foo+++
 
 x +++foo+++[WZ]
 
-x ---foo---
+x !!!foo!!!
 
-x ---foo---[WZ]
+x !!!foo!!![WZ]
 .
 <p>x <ins>+foo+</ins></p>
 <p>x <ins>+foo+</ins><sup>WZ</sup></p>
@@ -91,21 +91,21 @@ Inserts have the same priority as emphases:
 
 ++**test++[WZ]**
 
-**--test**--
+**!!test**!!
 
---**test--**
+!!**test!!**
 
-**--test**--[WZ]
+**!!test**!![WZ]
 
---**test--[WZ]**
+!!**test!![WZ]**
 .
 <p><strong>++test</strong>++</p>
 <p><ins>**test</ins>**</p>
 <p><strong>++test</strong>++[WZ]</p>
 <p><ins>**test</ins><sup>WZ</sup>**</p>
-<p><strong>--test</strong>--</p>
+<p><strong>!!test</strong>!!</p>
 <p><del>**test</del>**</p>
-<p><strong>--test</strong>--[WZ]</p>
+<p><strong>!!test</strong>!![WZ]</p>
 <p><del>**test</del><sup>WZ</sup>**</p>
 .
 
@@ -116,7 +116,7 @@ Works with links
 
 [BJG](https://twitter.com/thefoodgeek)
 
---[my link](http://link.com)--[WZ]
+!![my link](http://link.com)!![WZ]
 .
 <p><ins><a href="http://link.com">my link</a></ins><sup>WZ</sup></p>
 <p><a href="https://twitter.com/thefoodgeek">BJG</a></p>
@@ -128,7 +128,7 @@ Links in superscripts
 .
 ++Some highlighted text++[[BJG](https://twitter.com/thefoodgeek)]
 
---Some highlighted text--[[BJG](https://twitter.com/thefoodgeek)]
+!!Some highlighted text!![[BJG](https://twitter.com/thefoodgeek)]
 .
 <p><ins>Some highlighted text</ins><sup><a href="https://twitter.com/thefoodgeek">BJG</a></sup></p>
 <p><del>Some highlighted text</del><sup><a href="https://twitter.com/thefoodgeek">BJG</a></sup></p>
@@ -138,7 +138,7 @@ Links not rendered in superscripts
 .
 ++Some highlighted text++[BJG](https://twitter.com/thefoodgeek)
 
---Some highlighted text--[BJG](https://twitter.com/thefoodgeek)
+!!Some highlighted text!![BJG](https://twitter.com/thefoodgeek)
 .
 <p><ins>Some highlighted text</ins><sup>BJG</sup>(https://twitter.com/thefoodgeek)</p>
 <p><del>Some highlighted text</del><sup>BJG</sup>(https://twitter.com/thefoodgeek)</p>
@@ -151,14 +151,14 @@ Inserts have the same priority as emphases with respect to links:
 
 ++[link++]()
 
-[--link](123)--
+[!!link](123)!!
 
---[link--]()
+!![link!!]()
 .
 <p><a href="123">++link</a>++</p>
 <p>++<a href="">link++</a></p>
-<p><a href="123">--link</a>--</p>
-<p>--<a href="">link--</a></p>
+<p><a href="123">!!link</a>!!</p>
+<p>!!<a href="">link!!</a></p>
 .
 
 
@@ -172,22 +172,22 @@ Inserts have the same priority as emphases with respect to backticks:
 
 `++code`++[WZ]
 
---`code--`
+!!`code!!`
 
-`--code`--
+`!!code`!!
 
---`code--[WZ]`
+!!`code!![WZ]`
 
-`--code`--[WZ]
+`!!code`!![WZ]
 .
 <p>++<code>code++</code></p>
 <p><code>++code</code>++</p>
 <p>++<code>code++[WZ]</code></p>
 <p><code>++code</code>++[WZ]</p>
-<p>--<code>code--</code></p>
-<p><code>--code</code>--</p>
-<p>--<code>code--[WZ]</code></p>
-<p><code>--code</code>--[WZ]</p>
+<p>!!<code>code!!</code></p>
+<p><code>!!code</code>!!</p>
+<p>!!<code>code!![WZ]</code></p>
+<p><code>!!code</code>!![WZ]</p>
 .
 
 
@@ -197,9 +197,9 @@ Nested inserts:
 
 ++foo ++bar++[WZ] baz++[HP]
 
---foo --bar-- baz--
+!!foo !!bar!! baz!!
 
---foo --bar--[WZ] baz--[HP]
+!!foo !!bar!![WZ] baz!![HP]
 .
 <p><ins>foo <ins>bar</ins> baz</ins></p>
 <p><ins>foo <ins>bar</ins><sup>WZ</sup> baz</ins><sup>HP</sup></p>
@@ -214,9 +214,9 @@ Nested inserts with emphasis:
 
 ++f **o ++o b++[WZ] a** r++[HP]
 
---f **o --o b-- a** r--
+!!f **o !!o b!! a** r!!
 
---f **o --o b--[WZ] a** r--[HP]
+!!f **o !!o b!![WZ] a** r!![HP]
 .
 <p><ins>f <strong>o <ins>o b</ins> a</strong> r</ins></p>
 <p><ins>f <strong>o <ins>o b</ins><sup>WZ</sup> a</strong> r</ins><sup>HP</sup></p>
@@ -231,21 +231,21 @@ foo ++ bar ++ baz
 
 C++ is C++
 
-foo -- bar -- baz
+foo !! bar !! baz
 
-C-- is C--
+C!! is C!!
 .
 <p>foo ++ bar ++ baz</p>
 <p>C++ is C++</p>
-<p>foo -- bar -- baz</p>
-<p>C-- is C--</p>
+<p>foo !! bar !! baz</p>
+<p>C!! is C!!</p>
 .
 
 Should not have a whitespace between "++" and superscript:
 .
 foo ++bar++ [WZ] baz
 
-foo --bar-- [WZ] baz
+foo !!bar!! [WZ] baz
 .
 <p>foo <ins>bar</ins> [WZ] baz</p>
 <p>foo <del>bar</del> [WZ] baz</p>
@@ -278,28 +278,28 @@ test
 .
 
 .
---test
-end--
+!!test
+end!!
 
---test
---
+!!test
+!!
 
---
-test--
+!!
+test!!
 
---
+!!
 test
---
+!!
 .
 <p><del>test
 end</del></p>
-<p>--test
---</p>
-<p>--
-test--</p>
-<p>--
+<p>!!test
+!!</p>
+<p>!!
+test!!</p>
+<p>!!
 test
---</p>
+!!</p>
 .
 
 .
@@ -328,16 +328,16 @@ WZ
 .
 
 .
---test--[W
+!!test!![W
 Z]
 
---test--[WZ
+!!test!![WZ
 ]
 
---test--[
+!!test!![
 WZ]
 
---test--[
+!!test!![
 WZ
 ]
 .
@@ -359,12 +359,12 @@ a++"foo"++
 
 a++"foo"++[WZ]
 
-a--"foo"--
+a!!"foo"!!
 
-a--"foo"--[WZ]
+a!!"foo"!![WZ]
 .
 <p>a++&quot;foo&quot;++</p>
 <p>a++&quot;foo&quot;++[WZ]</p>
-<p>a--&quot;foo&quot;--</p>
-<p>a--&quot;foo&quot;--[WZ]</p>
+<p>a!!&quot;foo&quot;!!</p>
+<p>a!!&quot;foo&quot;!![WZ]</p>
 .
