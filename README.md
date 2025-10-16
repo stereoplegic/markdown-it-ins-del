@@ -1,7 +1,7 @@
 # markdown-it-ins-del
 
 > `<ins>` and `<del>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser with
-editor attributions. Forked from https://github.com/WenTingZhu/markdown-it-ins-del, but allows use of markdown-it's native strikethrough (`<s>` tag) via `~~`, instead using `!!` for `<del>` tags. While `--` seems like it would make more sense (and my first choice), markdown-it's build in typography plugin already uses `--` for en dashes.
+editor attributions. Forked from https://github.com/WenTingZhu/markdown-it-ins-del, but allows use of markdown-it's native strikethrough (`<s>` tag) via `~~`, instead using `!!` for `<del>` tags. While `--` seems like it would make more sense (and my first choice), markdown-it's built-in typography plugin already uses `--` for en dashes.
 
 __v0.1.+ requires `markdown-it` v4.+, see changelog.__
 
